@@ -1,0 +1,160 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+:root{
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  display: block;
+  margin: 10px;
+  .row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .col {
+      display: inline-flex;
+      flex-direction: column;
+      flex-basis: auto;
+    }
+  }
+}
+  
+@for $i from 2 through 8 {
+  .col-#{$i} {
+    display: inline-flex;
+    flex-direction: column;
+    flex-basis: calc((#{$i}/12)*100%);
+  }
+}
+
+$justify-properties: 'center' 'start' 'end' 'space-around' 'space-between' ;
+
+@each $property in $justify-properties {
+  .justify-content-#{$property} {
+    justify-content: #{$property};
+  }
+}
+
+$align-properties: 'center' 'start' 'end' 'stretch' ;
+
+@each $property in $align-properties {
+  .align-items-#{$property} {
+    align-items: #{$property};
+  }
+}
+
+label {
+  padding: 2px;
+  margin: 2px;
+}
+
+.toggleButton {
+  background-color: transparent !important;
+  border: none;
+  font-size: inherit;
+  transition: color 0.2s ease-out;
+}
+
+.activeToggle {
+  color: $primary-color;
+}
+
+.activeToggle::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 0.5em;
+  border-bottom: 2px $primary-color solid;
+}
+
+.input-group {
+  margin: 10px;
+}
+
+input {
+  margin: 0.5em;
+  padding: 0.5em 0.8em;
+  font-size: inherit;
+  border: 1px #ddd solid;
+  border-radius: 1em;
+  background-color: white;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+select {
+  margin: 0.5em;
+  padding: 0.5em;
+  font-size: inherit;
+  border: 1px #ddd solid;
+  border-radius: 1em;
+  background-color: white;
+  // -moz-appearance:none; /* Firefox */
+  // -webkit-appearance:none; /* Safari and Chrome */
+  // appearance:none;
+}
+
+option {
+  font-family: 'Quicksand', sans-serif;
+}
+
+select:focus-visible {
+  outline: none;
+}
+
+select {
+  color: black;
+  outline: none;
+  &:invalid {
+    color: gray;
+  }
+  &:valid {
+    color: black;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+option {
+  color: black;
+  
+}
+
+button {
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.button-primary {
+  background-color: $primary-color;
+  padding: 0.6em 1.2em;
+  border-radius: 1em;
+  border: 1px solid;
+  color: white;
+  font-size: 1em;
+}
+
+.checkbox {
+  border-radius: 0.25em;
+  width: 1em;
+  height: 1em;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }

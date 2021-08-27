@@ -1,26 +1,59 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header />
+  <InputForm />
+  <Filters />
+  <Table :headers="headers" :data="this.$store.getters.getFilteredData" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import InputForm from './components/InputForm.vue'
+import Filters from './components/Filters.vue'
+import Table from './components/Table.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    InputForm,
+    Filters,
+    Table,
+    Header
+  },
+  data () {
+    return {
+      headers: [
+        {
+          key: 'name',
+          name: 'Name'
+        },
+        {
+          key: 'address',
+          name: 'Address'
+        },
+        {
+          key: 'vaccine',
+          name: 'Vaccine'
+        },
+        {
+          key: 'fee_type',
+          name: 'Type'
+        },
+        {
+          key: 'available_capacity_dose1',
+          name: 'Dose 1'
+        },
+        {
+          key: 'available_capacity_dose2',
+          name: 'Dose 2'
+        }
+      ]
+    }
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  @import './assets/styles/styles.scss'
+
 </style>
